@@ -62,8 +62,8 @@ export const Controlled: Story = {
     return (
       <Checkbox
         {...args}
+        checked={checked}
         id={'controlled-checkbox'}
-        isChecked={checked}
         onCheckedChange={() => setChecked(!checked)}
       />
     )
