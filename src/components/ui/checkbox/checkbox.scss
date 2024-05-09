@@ -83,6 +83,12 @@ button {
   left: 10px;
 }
 
+.CheckboxRoot:focus::before {
+  transform: translate(-50%, -50%) scale(1); // Расширяем круг до полного размера
+  background: var(--color-dark-500);
+  left: 10px;
+}
+
 .CheckboxRoot.disabled:hover::before,
 .CheckboxRoot.disabled:active::before {
   transform: translate(-50%, -50%) scale(0); /* Отменяем анимацию */

@@ -1,19 +1,19 @@
-import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
+import { FieldError, FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import Checkbox, { CheckboxUIProps } from '@/components/ui/checkbox/checkbox'
 
-// type Props = {
-//   control: any
-//   name: any
-// } & Omit<CheckboxUIProps, 'checked' | 'name' | 'onBlur' | 'onCheckedChange'>
-type Props<T extends FieldValues> = Omit<
+type Props<T extends FieldValues> = { error?: FieldError | undefined } & Omit<
   CheckboxUIProps,
-  'checked' | 'name' | 'onBlur' | 'onCheckedChange'
+  'checked' | 'error' | 'name' | 'onBlur' | 'onCheckedChange'
 > &
   UseControllerProps<T>
 
-// export function FormCheckbox<T extends FieldValues>({ control, name, ...rest }: Props<T>) {
-export const FormCheckbox = <T extends FieldValues>({ control, name, ...rest }: Props<T>) => {
+export const FormCheckbox = <T extends FieldValues>({
+  control,
+  error,
+  name,
+  ...rest
+}: Props<T>) => {
   const {
     field: { onChange, value, ...field },
   } = useController({
@@ -21,13 +21,5 @@ export const FormCheckbox = <T extends FieldValues>({ control, name, ...rest }: 
     name,
   })
 
-  return (
-    <Checkbox
-      {...rest}
-      {...field}
-      checked={value}
-      // isChecked={checked}
-      onCheckedChange={onChange}
-    />
-  )
+  return <Checkbox {...rest} {...field} checked={value} error={error} onCheckedChange={onChange} />
 }
