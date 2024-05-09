@@ -1,0 +1,1 @@
+import{t as e}from"./index-CqB8-U0N.js";import"./index-BP8_t0zE.js";const t={parameters:{docs:{theme:e.dark},backgrounds:{default:"dark",values:[{name:"dark",value:"#000"},{name:"white",value:"#ffffff"}]},controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}}}};export{t as default};
