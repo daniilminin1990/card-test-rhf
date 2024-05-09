@@ -40,12 +40,7 @@ export const LoginForm = ({ onSubmit }: Props) => {
         <FormInput control={control} label={'email'} name={'email'} />
         <FormInput control={control} label={'password'} name={'password'} />
         <FormCheckbox control={control} label={'Remember Me'} name={'rememberMe'} />
-        <FormCheckbox
-          control={control}
-          error={errors.TOS}
-          label={'Accept terms of service'}
-          name={'TOS'}
-        />
+        <FormCheckbox control={control} label={'Accept terms of service'} name={'TOS'} />
         <Button type={'submit'}>Submit</Button>
       </form>
     </>

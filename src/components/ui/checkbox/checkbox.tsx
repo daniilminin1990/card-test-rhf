@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
-import { FieldError } from 'react-hook-form'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Label } from '@radix-ui/react-label'
@@ -7,16 +6,14 @@ import { Label } from '@radix-ui/react-label'
 import './checkbox.scss'
 
 export type CheckboxUIProps = {
-  error?: FieldError | string
   isDisabled?: boolean
   label?: string
 } & ComponentPropsWithoutRef<typeof Checkbox.Root>
 
 const StyledCheckbox = forwardRef<ElementRef<typeof Checkbox.Root>, CheckboxUIProps>(
   (props, ref) => {
-    const { error, id, isDisabled, label, onCheckedChange, ...rest } = props
+    const { id, isDisabled, label, onCheckedChange, ...rest } = props
     const disabledClass = isDisabled ? 'disabled' : ''
-    const errorClass = error ? 'error' : ''
     const labelId = id // Уникальный ID для связи с Label
 
     return (
@@ -30,7 +27,7 @@ const StyledCheckbox = forwardRef<ElementRef<typeof Checkbox.Root>, CheckboxUIPr
           ref={ref}
         >
           <Checkbox.Indicator
-            className={`checkboxFrame ${disabledClass} ${errorClass}`}
+            className={`checkboxFrame ${disabledClass}`}
             forceMount
           ></Checkbox.Indicator>
           <Label
