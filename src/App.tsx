@@ -10,7 +10,9 @@ export function App() {
         justifyContent: 'center',
       }}
     >
-      <Button>123 </Button>
+      <Button
+        style={{ backgroundColor: 'red', color: 'blue' }}
+      >123 </Button>
       <LoginForm onSubmit={data => console.log(data)} />
     </div>
   )
